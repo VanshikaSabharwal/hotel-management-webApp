@@ -12,8 +12,6 @@
     "@sanity/vision": "^3.48.1",
     "axios": "^1.7.2",
     "dotenv": "^16.4.5",
-    "git-filter-repo": "^0.0.30",
-    "langchain": "^0.2.8",
     "next": "14.2.4",
     "next-auth": "^4.24.7",
     "next-auth-sanity": "^1.5.3",
