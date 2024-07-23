@@ -3,7 +3,6 @@ import axios from "axios";
 import { CreateBookingDto, Room } from "@/models/room";
 import sanityClient from "./sanity";
 import * as queries from "./sanityQueries";
-import { Children } from "react";
 
 export async function getFeaturedRoom() {
   const result = await sanityClient.fetch<Room>(

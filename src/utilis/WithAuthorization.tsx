@@ -3,17 +3,13 @@ import { useRouter } from "next/navigation";
 import { useEffect, ComponentType } from "react";
 
 const withAuthorization = (WrappedComponent: ComponentType<any>) => {
-  return (props: any) => {
+  const WithAuthorization = (props: any) => {
     const { data: session, status } = useSession();
     const router = useRouter();
     const authorizedEmail = process.env.STUDIO_AUTHORIZED_EMAIL as string;
+
     useEffect(() => {
       if (status === "loading") return;
-
-      console.log(
-        "Authorized Email from env:",
-        process.env.STUDIO_AUTHORIZED_EMAIL
-      );
 
       if (!session) {
         signIn();
@@ -34,6 +30,10 @@ const withAuthorization = (WrappedComponent: ComponentType<any>) => {
 
     return <WrappedComponent {...props} />;
   };
+
+  WithAuthorization.displayName = `WithAuthorization(${WrappedComponent.displayName || WrappedComponent.name || "Component"})`;
+
+  return WithAuthorization;
 };
 
 export default withAuthorization;

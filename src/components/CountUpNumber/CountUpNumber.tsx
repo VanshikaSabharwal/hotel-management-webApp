@@ -24,7 +24,7 @@ const CountUpNumber: FC<Props> = ({ endValue, duration }) => {
     };
     animationFrameId = requestAnimationFrame(updateCount);
     return () => cancelAnimationFrame(animationFrameId);
-  }, [endValue]);
+  }, [endValue, duration]);
 
   return (
     <p className="md:font-bold font-medium text-lg xl:text-5xl">
