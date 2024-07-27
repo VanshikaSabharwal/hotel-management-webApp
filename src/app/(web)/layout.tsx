@@ -3,7 +3,7 @@ import { Overpass } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
-import ThemeProvider from "@/components/ThemeProvider/ThemeProvider";
+// import ThemeProvider from "@/components/ThemeProvider/ThemeProvider";
 import { NextAuthProvider } from "@/components/AuthProvider/AuthProvider";
 import Toast from "@/components/Toast/Toast";
 
@@ -35,14 +35,14 @@ export default function RootLayout({
       </head>
       <body className={poppins.className}>
         <NextAuthProvider>
-          <ThemeProvider>
-            <Toast />
-            <main className="font-normal">
-              <Header />
-              {children}
-              <Footer />
-            </main>
-          </ThemeProvider>
+          {/* <ThemeProvider> */}
+          <Toast />
+          <main className="font-normal">
+            <Header />
+            {children}
+            <Footer />
+          </main>
+          {/* </ThemeProvider> */}
         </NextAuthProvider>
       </body>
     </html>
