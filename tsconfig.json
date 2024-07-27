@@ -1,17 +1,20 @@
 {
   "compilerOptions": {
-    "target": "es2017",
+    "target": "es5" /* or higher */,
     "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
+    "allowJs": true /* Check if this is necessary for your project */,
+    "skipLibCheck": true /* Check if this is necessary for your project */,
     "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "noEmit": true,
+    "jsx": "react-jsx",
     "incremental": true,
     "plugins": [
       {
