@@ -7,11 +7,11 @@ import { FaUserCircle } from "react-icons/fa";
 import { MdDarkMode, MdOutlineLightMode } from "react-icons/md";
 import { useSession, signOut } from "next-auth/react";
 
-// import ThemeContext from "@/context/themeContext";
+import ThemeContext from "@/context/themeContext";
 import Image from "next/image";
 
 const Header = () => {
-  // const { darkTheme, setDarkTheme } = useContext(ThemeContext);
+  const { darkTheme, setDarkTheme } = useContext(ThemeContext);
 
   const { data: session } = useSession();
 
@@ -63,7 +63,7 @@ const Header = () => {
               </Link>
             )}
           </li>
-          {/* <li className="ml-2">
+          <li className="ml-2">
             {darkTheme ? (
               <MdOutlineLightMode
                 className="cursor-pointer icon-width-height"
@@ -81,7 +81,7 @@ const Header = () => {
                 }}
               />
             )}
-          </li> */}
+          </li>
         </ul>
       </div>
 
