@@ -36,12 +36,10 @@ export default function RootLayout({
       <body className={poppins.className}>
         <NextAuthProvider>
           <ThemeProvider>
-          <Toast />
-          <main className="font-normal">
+            <Toast />
             <Header />
-            {children}
+            <main className="font-normal">{children}</main>
             <Footer />
-          </main>
           </ThemeProvider>
         </NextAuthProvider>
       </body>
