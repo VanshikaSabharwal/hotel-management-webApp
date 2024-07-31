@@ -8,18 +8,18 @@ type ThemeProviderProps = {
 };
 
 const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const initialTheme =
-    typeof localStorage !== "undefined" && localStorage.getItem("hotel-theme")
-      ? JSON.parse(localStorage.getItem("hotel-theme") as string)
-      : false;
-
-  const [darkTheme, setDarkTheme] = useState<boolean>(initialTheme);
-
+  const [darkTheme, setDarkTheme] = useState<boolean>(() => {
+    if (typeof window !== "undefined") {
+      const savedTheme = localStorage.getItem("hotel-theme");
+      return savedTheme ? JSON.parse(savedTheme) : false;
+    }
+    return false;
+  });
   useEffect(() => {
     try {
       localStorage.setItem("hotel-theme", JSON.stringify(darkTheme));
     } catch (error) {
-      console.error("Error storing theme in localStorage:", error);
+      console.log("Error storing theme in localStorage:", error);
     }
   }, [darkTheme]);
 
