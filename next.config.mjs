@@ -11,7 +11,6 @@ const nextConfig = {
   env: {
     STUDIO_AUTHORIZED_EMAIL: process.env.STUDIO_AUTHORIZED_EMAIL,
   },
-  output: "standalone",
 };
 
 export default nextConfig;

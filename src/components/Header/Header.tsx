@@ -12,6 +12,7 @@ import Image from "next/image";
 
 const Header = () => {
   const { darkTheme, setDarkTheme } = useContext(ThemeContext);
+  console.log(ThemeContext);
 
   const { data: session } = useSession();
 
