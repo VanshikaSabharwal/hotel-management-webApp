@@ -61,7 +61,6 @@ const Rooms = () => {
   };
 
   const filteredRooms = filterRooms(data || []); // Filter rooms based on data and filters
-  console.log("filteredRooms:", filteredRooms); // Log filtered rooms for debugging
 
   return (
     <div className="container mx-auto pt-10">
