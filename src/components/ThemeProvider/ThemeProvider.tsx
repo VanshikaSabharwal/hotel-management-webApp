@@ -15,18 +15,21 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     }
     return false;
   });
+
   useEffect(() => {
     try {
       localStorage.setItem("hotel-theme", JSON.stringify(darkTheme));
     } catch (error) {
-      console.log("Error storing theme in localStorage:", error);
+      console.error("Error storing theme in localStorage:", error);
     }
   }, [darkTheme]);
 
   return (
     <ThemeContext.Provider value={{ darkTheme, setDarkTheme }}>
       <div className={`${darkTheme ? "dark" : ""} min-h-screen`}>
-        <div className="dark:text-white dark:bg-black text-[##1E1E1E]">
+        <div
+          className={`text-${darkTheme ? "white" : "black"} bg-${darkTheme ? "black" : "white"}`}
+        >
           {children}
         </div>
       </div>
