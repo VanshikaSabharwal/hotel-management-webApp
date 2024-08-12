@@ -25,24 +25,18 @@ const Rooms = () => {
   const fetchData = async () => {
     try {
       const rooms = await getRooms();
-      console.log("Fetched rooms:", rooms); // Log fetched rooms
       return rooms;
     } catch (error) {
       console.error("Failed to fetch rooms:", error);
-      return []; // Return empty array on error
+      return [];
     }
   };
 
   const { data, error, isLoading } = useSWR("get/hotelRooms", fetchData);
 
-  if (error) {
-    console.error("Error fetching data:", error);
-    // Optionally, you could return a fallback UI here
-  }
-
-  // Optionally, render loading or error states
-  if (isLoading) return <div>Loading...</div>;
-  if (!data) return <div>No rooms available</div>;
+  if (error) throw new Error("Cannot fetch data");
+  if (typeof data === "undefined" && !isLoading)
+    throw new Error("Cannot fetch data");
 
   const filterRooms = (rooms: Room[]) => {
     return rooms.filter((room) => {
@@ -54,6 +48,7 @@ const Rooms = () => {
         return false;
       }
 
+      //   Apply search query filter
       if (
         searchQuery &&
         !room.name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -78,11 +73,9 @@ const Rooms = () => {
       />
 
       <div className="flex mt-20 justify-between flex-wrap">
-        {filteredRooms.length > 0 ? (
-          filteredRooms.map((room) => <RoomCard key={room._id} room={room} />)
-        ) : (
-          <div>No rooms found</div>
-        )}
+        {filteredRooms.map((room) => (
+          <RoomCard key={room._id} room={room} />
+        ))}
       </div>
     </div>
   );
