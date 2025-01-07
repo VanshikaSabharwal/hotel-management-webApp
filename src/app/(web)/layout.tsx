@@ -34,14 +34,14 @@ export default function RootLayout({
         />
       </head>
       <body className={poppins.className}>
-        <ThemeProvider>
-          <NextAuthProvider>
+        <NextAuthProvider>
+          <ThemeProvider>
             <Toast />
             <Header />
             <main className="font-normal">{children}</main>
             <Footer />
-          </NextAuthProvider>
-        </ThemeProvider>
+          </ThemeProvider>
+        </NextAuthProvider>
       </body>
     </html>
   );
